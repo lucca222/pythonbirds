@@ -1,14 +1,19 @@
 class Pessoa:  # classes são tipos personalizados
-    def __init__(self, nome=None, idade=35):  # Atributo de dado
+    def __init__(self, *filhos, nome=None, idade=19):  # Atributo de dado
         self.idade = idade
         self.nome = nome
+        self.filhos = list(filhos)
 
     def cumprimentar(self):  # metodo
-        return f'Olá {id(self)}'
+        return f'{id(self)}'
 
 
 if __name__ == '__main__':
-    p = Pessoa('Lucca')
-    print(Pessoa.cumprimentar(p))
-    print(p.cumprimentar())
-    print(p.nome)
+    lucca = Pessoa(idade=17, nome='Lucca')
+    light = Pessoa(lucca, nome="Light")
+    print(Pessoa.cumprimentar(lucca))
+    print(lucca.cumprimentar())
+    print(lucca.nome)
+    print(lucca.idade)
+    for filho in light.filhos:
+        print(filho.nome)
