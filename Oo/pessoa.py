@@ -6,8 +6,16 @@ class Pessoa:  # classes são tipos personalizados
         self.nome = nome  # Atributo de dado
         self.filhos = list(filhos)  # Atributo Complexo
 
-    def cumprimentar(self):  # metodo
+    def cumprimentar(self):  # metodo de instância
         return f'{id(self)}'
+
+    @staticmethod  # não precisa de self nem cls # metodo estatico
+    def metodo_estatico():
+        return 42
+
+    @classmethod  # coisas globais da classe # metodo de classe
+    def nome_e_atributos_de_classe(cls):
+        return f'{cls} - olhos {cls.olhos}'
 
 
 if __name__ == '__main__':
@@ -28,4 +36,5 @@ if __name__ == '__main__':
     print(light.olhos)  # atribudo de classe
     print(lucca.__dict__)  # Visualização Atributos
     print(light.__dict__)
-
+    print(Pessoa.metodo_estatico(), light.metodo_estatico())
+    print(Pessoa.nome_e_atributos_de_classe(), light.nome_e_atributos_de_classe())
